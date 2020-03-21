@@ -1,0 +1,12 @@
+EnableUpdates (bool)
+GetObjectFlags () const
+HasUpdatesEnabled () const
+Returns true if the object is already read from Hardware (if applicable).
+IsHidden () const
+Returns true, if the Object is Hidden.
+IsValid () const
+Returns true, if the Object is Valid.
+SetObjectFlag (quint32 uiFlags, bool bSet=true)
+Allows to modify the Object Flags - For the Flags.
+Update ()
+Reads the Data from the target.
