@@ -24,6 +24,8 @@ class Test(object):
 
     def __init__(self):
 
+        self.string = "Stu"
+        self.string
         self.assign = PbaProObject("AssignRoot")
         connect(self.assign, 'Activated(bool)', self, "func")
         connect(self.assign, 'Activated(bool)', self, "func")
@@ -60,4 +62,8 @@ print MB1.childrenNames()
 a = PbaProObject("dialog")
 print a.objectName, a.objectPath(), a.classname()
 
-a = "Stuart"
+param = PbaProObject("AssignRoot.LS-RT1-TX-SA1-0")
+import ConfigParser
+c = ConfigParser.ConfigParser()
+param2 = PbaProObject("AssignRoot.LS-RT1-TX-SA1-0")
+pba = PbaProObject("PBApro")

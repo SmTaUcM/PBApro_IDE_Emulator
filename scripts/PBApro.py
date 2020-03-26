@@ -51,6 +51,7 @@ if "PbaProObject" not in dir():
 
         # Declare and initialise class vairables.
         _instances = []
+        _frameworkVersion = "V??.?? Build ???"
 
         def __init__(self, objectPath, className):
 
@@ -64,6 +65,7 @@ if "PbaProObject" not in dir():
             self._children = []
             self._parent = None
             self._objectFlag = None
+            self._ssData = None
 
             # Class specific attributes
             #----------------------------------------------------------------#
@@ -1058,7 +1060,9 @@ if "PbaProObject" not in dir():
         def _GetFrameworkVersion(self, *args, **kwargs):
             '''Returns the current framework version. '''
 
-            return "V02.70 Build 171"
+            return PbaProObject._frameworkVersion.split(".")[0] + "." + \
+                   PbaProObject._frameworkVersion.split(".")[1] + \
+                   " Build " + PbaProObject._frameworkVersion.split(".")[-1]
             #----------------------------------------------------------------------------------------------------------------------------------------#
 
         def _IsRuntimeMode(self, *args, **kwargs):
@@ -2302,6 +2306,12 @@ If you set bForce to true, the Assign Option is created always, although it seem
         for xmlDict in xmlDicts:
             __searchForCL(xmlDict["PPU"])
 
+        # Set the PBA.Pro FrameWork version.
+        if len(xmlDicts) > 0:
+            for item in xmlDicts[0]["PPU"]["GMI"]["FI"]:
+                if item["@c"] == "Framework Version":
+                    PbaProObject._frameworkVersion = item["@d"]
+
 
     #------------------------------------------------------------------------------------------------------------------------------------------------#
     def __searchForCL(xmlDict, parentObj=None):
@@ -2312,12 +2322,18 @@ If you set bForce to true, the Assign Option is created always, although it seem
             for item in xmlDict.get("CL"):
                 objectName = item["@n"]
                 className = item["@ty"]
+                # Add object properties that have been save to the XML files.
                 try:
                     properties = item["PR"]["@d"]
                 except KeyError:
                     properties = False
+                # Add addition object information - Used to store assign window parameter additional information.
+                try:
+                    ssData = item["SS"]
+                except:
+                    ssData = None
 
-                newObj = __createObject(className, objectName, properties, parentObj)
+                newObj = __createObject(className, objectName, parentObj, properties, ssData)
                 __addParentInfo(parentObj, newObj)
 
                 # Detect further child assets.
@@ -2328,11 +2344,17 @@ If you set bForce to true, the Assign Option is created always, although it seem
         elif str(type(xmlDict.get("CL"))) == "<class 'collections.OrderedDict'>":
             objectName = xmlDict["CL"]["@n"]
             className = xmlDict["CL"]["@ty"]
+            # Add object properties that have been save to the XML files.
             try:
                 properties = xmlDict["CL"]["PR"]["@d"]
             except:
                 properties = False
-            newObj = __createObject(className, objectName, properties, parentObj)
+            # Add addition object information - Used to store assign window parameter additional information.
+            try:
+                ssData = item["SS"]
+            except:
+                ssData = None
+            newObj = __createObject(className, objectName, parentObj, properties, ssData)
             __addParentInfo(parentObj, newObj)
 
             # Detect further child assets.
@@ -2357,7 +2379,7 @@ If you set bForce to true, the Assign Option is created always, although it seem
     #------------------------------------------------------------------------------------------------------------------------------------------------#
 
 
-    def __createObject(className, objectName, properties=None, parentObj=None):
+    def __createObject(className, objectName, parentObj=None, properties=None, ssData=None):
         '''Hidden function that creates our newly discovered potential _PbaProObjects() from XML and adds their file saved properties.'''
 
         # Establish the objectPath.
@@ -2389,9 +2411,13 @@ If you set bForce to true, the Assign Option is created always, although it seem
 
                     except ValueError: # Used for complex properties that have multiple = signs within them.
                         pass
+            if ssData:
+                newObj._ssData = ssData["@d"]
 
             return newObj
     #------------------------------------------------------------------------------------------------------------------------------------------------#
+
+
     def connect(Src, Signal, Dest, Slot, Mode=None, bForceSingleConnect=False):
         '''Connect function
 
