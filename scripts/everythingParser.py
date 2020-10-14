@@ -1,47 +1,129 @@
-with open(r"C:\Users\smtau\Desktop\PBApro\scripts\data.txt", "r") as dataFile:
-    data = dataFile.readlines()
+template = {
+# Class PPDBSParamAssignEntry
+"PPDBSParamAssignEntry" : {
+"completions" : [
+{
+"text": "ValueStr",
+"rightLabel": "",
+"type": "value",
+"raw_type": "statement"
+},
 
-properties = []
-signals = []
-slots = []
+{
+"text": "ValueRaw",
+"rightLabel": "",
+"type": "value",
+"raw_type": "statement"
+},
 
-mode = None
+{
+"text": "TestFunc",
+"rightLabel": "",
+"type": "function",
+"raw_type": "function"
+},
 
-for line in data:
+{
+"text": "AnotherTestFunc",
+"rightLabel": "",
+"type": "function",
+"raw_type": "function"
+},
+], # End of Completions
 
-    index = data.index(line)
-    line = line.replace("\n", "") # Strip out all new lines.
+"tooltip" : {
+"ValueStr" : [
+{
+"text": "",
+"docstring": "Object Property\n\nThe Value Property interpreted as string. ",
+"type": "value",
+"description": "",
+"signature": ""
+}
+],
 
-    # Detect which part of the help text we are looking at.
-    if line == "Properties" or line == "Signals" or line == "Slots":
-        mode = line
-        continue
+"ValueRaw" : [
+{
+"text": "",
+"docstring": "Object Property\n\nThe Value Property In the RAW Format from the datasource. ",
+"type": "value",
+"description": "",
+"signature": ""
+}
+],
 
-    # ------------ PROPERTIES LIST
-    if mode == "Properties":
-        if line != "" and " " not in line and "." not in line and line != "bool" and line != "int" and line != "QSize" and line != "Qt::LayoutDirection" and \
-           line != "QString" and line != "QIcon":
+"TestFunc" : [
+{
+"text": "",
+"docstring": "Test Func Doc String",
+"type": "function",
+"description": "",
+"signature": "TestFunc(str: test, str: func) -> None"
+},
+],
 
-           properties.append(line)
+"AnotherTestFunc" : [
+{
+"text": "",
+"docstring": "Another Test Func Doc String",
+"type": "function",
+"description": "",
+"signature": "AnotherTestFunc(str: help, str: me) -> None"
+},
+],
 
-    # ------------ SIGNALS LIST
-    elif mode == "Signals":
-        prevLine = data[index - 1].replace("\n", "")
-        if preLine == "void\n":
-            signals.append(line.replace(" ", ""))
+}, # End of Tooltips
 
-    # ------------ SLOTS LIST
-    elif mode == "Slots":
-        prevLine = data[index - 1].replace("\n", "")
-        if line != "" and "." not in line and line != "QObjectList"  and line != "void" and line != "PPComponent *" \
-            and line != "QStringLIst" and line != "QString" and line != "bool" and line != "int":
+"arguments" : {
+"TestFunc" : [
+{
+"raw_docstring": "",
+"name": "TestFunc",
+"docstring": "TestFunc(str: test, str: func) -> None",
+"params": [
+{
+"docstring": "",
+"name": "test",
+"value": None,
+"description": "param test: str"
+},
 
-            slots.append(line.replace(" ", ""))
+{
+"docstring": "",
+"name": "func",
+"value": None,
+"description": "param func: str"
+}
+],
 
+"description": "def TestFunc"
+}
+],
 
-print properties
-print  "\n"
-print signals
-print  "\n"
-print slots
-print  "\n"
+"AnotherTestFunc" : [
+{
+"raw_docstring": "",
+"name": "TestFunc",
+"docstring": "AnotherTestFunc(str: help, str: me) -> None",
+"params": [
+{
+"docstring": "",
+"name": "help",
+"value": None,
+"description": "param help: str"
+},
+
+{
+"docstring": "",
+"name": "me",
+"value": None,
+"description": "param me: str"
+}
+],
+
+"description": "def AnotherTestFunc"
+}
+],
+},# End of Arguments
+} # End of PPDBSParamAssignEntry
+} # End of template.s

@@ -31,7 +31,6 @@ class Test(object):
         connect(self.assign, 'Activated(bool)', self, "func")
         connect(self.assign, 'Activated(bool)', self, "func")
 
-
     def func(self, sender, value):
 
         print "did something"
