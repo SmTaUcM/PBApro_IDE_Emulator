@@ -1,12 +1,12 @@
 """#-------------------------------------------------------------------------------------------------------------------------------------------------#
-# Name:        module1
-# Purpose:
+# Name:        Test Project.py
+# Purpose:     Test project used for the testing of the PBApro Python module.
 # Version:     v1.00
 # Author:      Sgt. S. Macintosh - MSC System Engineers
 #
 # Created:     18/03/2020
-# Copyright:   (c) Crown Copyright - MSC System Engineers 2020
-# Licence:     MSC System Engineers
+# Copyright:   N/A
+# Licence:     N/A
 #-------------------------------------------------------------------------------------------------------------------------------------------------#"""
 # ----------------------------------------------------------------------------------------------------------------------------------------------------#
 #                                                                      Imports.                                                                      #
@@ -27,8 +27,6 @@ class Test(object):
         self.string = "Stu"
         self.string
         self.assign = PbaProObject("AssignRoot")
-        connect(self.assign, 'Activated(bool)', self, "func")
-        connect(self.assign, 'Activated(bool)', self, "func")
         connect(self.assign, 'Activated(bool)', self, "func")
 
     def func(self, sender, value):
