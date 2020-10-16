@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<!DOCTYPE PPU SYSTEM "PPUnversioned.dtd">
+<PPU>
+	<GMI>
+		<KEY></KEY>
+		<FI c="PbaPro file" o="AIM GmbH" d="2020-03-21"/>
+		<FI c="Framework Version" d="V02.70.0.171"/>
+		<FI c="CompVers" o="Qt Version" d="40807"/>
+		<FI c="CompVers" o="PBA.pro ActiveX component" d="V02.70.0.171"/>
+		<FI c="CompVers" o="PBA.pro ANA-widgets library component" d="V02.70.0.171"/>
+		<FI c="CompVers" o="PBA.pro DBS component" d="V02.70.0.171"/>
+		<FI c="CompVers" o="PBA.pro designer component" d="V02.70.0.171"/>
+		<FI c="CompVers" o="PBA.pro examples component" d="V02.70.0.171"/>
+		<FI c="CompVers" o="PBA.pro legacy import library" d="V02.70.0.171"/>
+		<FI c="CompVers" o="PBA.pro KDC component" d="V02.70.0.171"/>
+		<FI c="CompVers" o="PBA.pro LGPL component" d="V02.70.0.171"/>
+		<FI c="CompVers" o="PBA.pro MIL component" d="V02.70.0.171"/>
+		<FI c="CompVers" o="PBA.pro QWT component" d="V02.70.0.171"/>
+		<FI c="CompVers" o="PBA.pro Saver component" d="V02.70.0.171"/>
+		<FI c="CompVers" o="Enables 3910 and Efex Resources" d="V02.70.0.171"/>
+		<FI c="CompVers" o="PBA.pro Python component starter." d="V02.70.0.171"/>
+		<FI c="CompVers" o="PBA.pro QML component" d="V02.70.0.171"/>
+		<FI c="CompVers" o="AIM Recordingfile- and DACFF-Converter" d="V02.70.0.171"/>
+		<FI c="CompVers" o="PBA.pro Python component for Python 2.7.12." d="V02.70.0.171"/>
+		<FI c="FileType" o="ExportFile"/>
+		<FI c="FileComment" o=""/>
+		<FI c="Locale" o="C"/>
+	</GMI>
+	<CL ty="PPDBS" n="Parameters">
+		<CL ty="MilDBSStreamType" n="MIL">
+			<CL ty="MilDBSStreamHS" n="MIL1_HS">
+				<PR d="Alias=;StreamId=1"/>
+				<CL ty="MilDBSRtBc" n="RT">
+					<PR d="Type=0"/>
+					<CL ty="MilDBSRtAddress" n="RT1">
+						<PR d="Address=1"/>
+						<CL ty="MilDBSDirection" n="Rx">
+							<PR d="Direction=0"/>
+							<CL ty="MilDBSSubAddress" n="SA1">
+								<PR d="Alias=;Comment=;SubAddress=1"/>
+								<CL ty="MilDBSParam" n="RX-Param-1" Id="2">
+									<PR d="WordPos=3;BitPos=0;BitLength=16;Format=1"/>
+								</CL>
+							</CL>
+						</CL>
+						<CL ty="MilDBSDirection" n="Tx">
+							<PR d="Direction=1"/>
+							<CL ty="MilDBSSubAddress" n="SA1">
+								<PR d="Alias=;Comment=;SubAddress=1"/>
+								<CL ty="MilDBSParam" n="TX-Param-1" Id="1">
+									<PR d="WordPos=0;BitPos=0;BitLength=16;Format=2"/>
+								</CL>
+							</CL>
+						</CL>
+					</CL>
+				</CL>
+			</CL>
+			<CL ty="MilDBSStreamLS" n="MIL1">
+				<PR d="Alias=;StreamId=1"/>
+				<CL ty="MilDBSRtBc" n="RT">
+					<PR d="Type=0"/>
+					<CL ty="MilDBSRtAddress" n="RT1">
+						<PR d="Address=1"/>
+						<CL ty="MilDBSDirection" n="Rx">
+							<PR d="Direction=0"/>
+							<CL ty="MilDBSSubAddress" n="SA1">
+								<PR d="Alias=;Comment=;SubAddress=1"/>
+								<CL ty="MilDBSParam" n="LS-RT1-RX-SA1-0" Id="4">
+									<PR d="WordPos=0;BitPos=0;BitLength=16;Format=30"/>
+									<CL ty="PPDBSFormatEnum" n="Format">
+										<SS d="0=VALID"/>
+										<PR d="ElseCaption=INVALID"/>
+									</CL>
+								</CL>
+							</CL>
+						</CL>
+						<CL ty="MilDBSDirection" n="Tx">
+							<PR d="Direction=1"/>
+							<CL ty="MilDBSSubAddress" n="SA1">
+								<PR d="Alias=;Comment=;SubAddress=1"/>
+								<CL ty="MilDBSParam" n="LS-RT1-TX-SA1-0" Id="3">
+									<PR d="WordPos=0;BitPos=0;BitLength=16;Format=30"/>
+									<CL ty="PPDBSFormatEnum" n="Format">
+										<SS d="0=VALID"/>
+										<PR d="ElseCaption=INVALID"/>
+									</CL>
+								</CL>
+							</CL>
+						</CL>
+					</CL>
+					<CL ty="MilDBSRtAddress" n="RT2">
+						<PR d="Address=2"/>
+						<CL ty="MilDBSDirection" n="Rx">
+							<PR d="Direction=0"/>
+							<CL ty="MilDBSSubAddress" n="SA1">
+								<PR d="Alias=;Comment=;SubAddress=1"/>
+								<CL ty="MilDBSParam" n="LS-RT2-RX-SA1-0" Id="5">
+									<PR d="WordPos=0;BitPos=0;BitLength=16;Format=2"/>
+									<CL ty="PPDBSFormatSimple" n="Format">
+										<PR d="FormatType=2"/>
+									</CL>
+								</CL>
+							</CL>
+						</CL>
+						<CL ty="MilDBSDirection" n="Tx">
+							<PR d="Direction=1"/>
+							<CL ty="MilDBSSubAddress" n="SA1">
+								<PR d="Alias=;Comment=;SubAddress=1"/>
+								<CL ty="MilDBSParam" n="LS-RT2TRX-SA1-0" Id="6">
+									<PR d="WordPos=0;BitPos=0;BitLength=16;Format=2"/>
+									<CL ty="PPDBSFormatSimple" n="Format">
+										<PR d="FormatType=2"/>
+									</CL>
+								</CL>
+							</CL>
+						</CL>
+					</CL>
+				</CL>
+			</CL>
+		</CL>
+		<CL ty="PPDBSGlobRoot" n="GLOBAL">
+			<CL ty="PPDBSGlobStructure" n="Structures">
+			</CL>
+		</CL>
+	</CL>
+</PPU>
